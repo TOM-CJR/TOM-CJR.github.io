@@ -16,6 +16,7 @@
     <script type="text/javascript" src="./Love_files/jscex-async-powerpack.min.js"></script>
     <script type="text/javascript" src="./Love_files/functions.js" charset="utf-8"></script>
     <script type="text/javascript" src="./Love_files/love.js" charset="utf-8"></script>
+    <script type="myjavascript" src="./Love_files/myImge.js" charset="utf-8"></script>
 
 </head>
 
@@ -41,21 +42,23 @@
                     <span class="say">我对宝宝的爱至死不渝 宝宝也永远是我的心肝宝贝</span><br>
                     <span class="say">一直爱你的冉冉</span><br>
                     <br>
-                    <span class="say"><span class="space"></span> -- 2024.12.14</span>
+                    <span class="say"><span class="space"></span> <a href="Love_journey.html">-- 2024.12.15</a></span>
                 </div>
+
             </div>
             <div id="clock-box">
-                <a  target="_blank">冉冉</a> 与 <a
-                     target="_blank">宝宝</a> 在一起的
+                <a target="_blank">冉冉</a> 与 <a target="_blank">宝宝</a> 在一起的
                 <div id="clock"></div>
             </div>
             <canvas id="canvas" width="1100" height="680"></canvas>
         </div>
-        <audio id="aud"  src="music/大城小爱半音乐_缩混.wav" autoplay="autoplay"></audio>
+        <audio id="aud" src="music/大城小爱半音乐_缩混.wav" autoplay="autoplay"></audio>
+
     </div>
+
     <script>
-	//遇见日期写在这里，倒计时用
-        var time="2024-10-7"
+        //遇见日期写在这里，倒计时用
+        var time = "2024-10-7"
 
         window.onload = function () {
             setInterval("toggleSound()", 100);
@@ -201,10 +204,10 @@
 
             var textAnimate = eval(Jscex.compile("async", function () {
                 var together = new Date();
-                var time_list=time.split("-")
-            
-                console.log("时间",time_list);
-                together.setFullYear(parseInt(time_list[0]),parseInt(time_list[1])-1, parseInt(time_list[2]));
+                var time_list = time.split("-")
+
+                console.log("时间", time_list);
+                together.setFullYear(parseInt(time_list[0]), parseInt(time_list[1]) - 1, parseInt(time_list[2]));
                 together.setHours(0);
                 together.setMinutes(0);
                 together.setSeconds(0);
@@ -218,7 +221,7 @@
                 }
             }));
 
-            
+
 
             var runAsync = eval(Jscex.compile("async", function () {
                 $await(seedAnimate());
