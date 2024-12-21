@@ -1,247 +1,36 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<!-- saved from url=(0027)http://itzoo.info/love.html -->
-<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!doctype html>
+<html lang="zh">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Love</title>
-
-    <link type="text/css" rel="stylesheet" href="./Love_files/default.css">
-    <script type="text/javascript" src="./Love_files/jquery.min.js"></script>
-    <script type="text/javascript" src="./Love_files/jscex.min.js"></script>
-    <script type="text/javascript" src="./Love_files/jscex-parser.js"></script>
-    <script type="text/javascript" src="./Love_files/jscex-jit.js"></script>
-    <script type="text/javascript" src="./Love_files/jscex-builderbase.min.js"></script>
-    <script type="text/javascript" src="./Love_files/jscex-async.min.js"></script>
-    <script type="text/javascript" src="./Love_files/jscex-async-powerpack.min.js"></script>
-    <script type="text/javascript" src="./Love_files/functions.js" charset="utf-8"></script>
-    <script type="text/javascript" src="./Love_files/love.js" charset="utf-8"></script>
-    <script type="myjavascript" src="./Love_files/myImge.js" charset="utf-8"></script>
-
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 
+<style>
+    .iframepage {
+        -webkit-overflow-scrolling: touch;
+        overflow-x: scroll;
+        overflow-y: hidden;
+    }
+
+    ::-webkit-scrollbar {
+        width: 0px;
+    }
+
+    /*局部滚动的dom节点*/
+    .scroll-el {
+        overflow: auto;
+    }
+</style>
+
 <body>
-    <div id="main">
-        <div id="error">亲，您使用的浏览器无法支持即将显示的内容，请换成谷歌(<a
-                href="http://www.google.cn/chrome/intl/zh-CN/landing_chrome.html?hl=zh-CN&brand=CHMI">Chrome</a>)或者火狐(<a
-                href="http://firefox.com.cn/download/">Firefox</a>)浏览器哟~</div>
-        <div id="wrap">
-            <div id="text">
-                <div id="code">
-                    <span class="say">圣诞灯火映眸光 爱意融融暖心房</span><br>
-                    <span class="say">圣诞快乐，愿你在新的一年里，一切都如往常般美好</span><br>
-                    <span class="say">宝宝，这是第一次我们以这种方式相遇</span><br>
-                    <span class="say">此时此刻我是十分激动的，有没有惊喜到宝宝呀</span><br>
-                    <span class="say">以后我会一直在这里记录我们的爱情，记录我们最真切的情感</span><br>
-                    <span class="say">虽然不能像微信朋友圈那样秀恩爱，但是我对宝宝的爱永远不会变</span><br>
-                    <span class="say">所以想到了这种方式也晒晒我们的爱情</span><br>
-                    <span class="say">生日那天，我有感而发，从今年的圣诞节开始，给宝宝一种特殊的惊喜</span><br>
-                    <span class="say">现在的我已经迫不及待想将这份爱送到宝宝手里</span><br>
-                    <span class="say">悄悄准备了半个多月 嘿嘿~</span><br>
-                    <span class="say">每份礼物都是我反复推敲后选出来的，不知道宝宝会不会喜欢 嘻嘻~</span><br>
-                    <br>
-                    <span class="say">此网址永久有效 而且不定期更新礼物预告信息 宝宝想什么时候查看都可以哦</span><br>
-                    <span class="say">我对宝宝的爱至死不渝 宝宝也永远是我的心肝宝贝</span><br>
-                    <span class="say">一直爱你的冉冉</span><br>
-                    <br>
-                    <span class="say"><span class="space"></span> <a href="Love_journey.html">-- 2024.12.15</a></span>
-                </div>
-
-            </div>
-            <div id="clock-box">
-                <a target="_blank">冉冉</a> 与 <a target="_blank">宝宝</a> 在一起的
-                <div id="clock"></div>
-            </div>
-            <canvas id="canvas" width="1100" height="680"></canvas>
-        </div>
-        <audio id="aud" src="music/大城小爱半音乐_缩混.mp3" autoplay="autoplay"></audio>
-
-    </div>
-
-    <script>
-        //遇见日期写在这里，倒计时用
-        var time = "2024-10-7"
-
-        window.onload = function () {
-            setInterval("toggleSound()", 100);
-
-        }
-        function toggleSound() {
-            var music = document.getElementById("aud");//获取ID  
-
-            if (music.paused) { //判读是否播放  
-                music.paused = false;
-                music.play(); //没有就播放 
-            }
-        }
-
-
-        (function () {
-            var canvas = $('#canvas');
-
-            if (!canvas[0].getContext) {
-                $("#error").show();
-                return false;
-            }
-
-            var width = canvas.width();
-            var height = canvas.height();
-
-            canvas.attr("width", width);
-            canvas.attr("height", height);
-
-            var opts = {
-                seed: {
-                    x: width / 2 - 20,
-                    color: "rgb(190, 26, 37)",
-                    scale: 2
-                },
-                branch: [
-                    [535, 680, 570, 250, 500, 200, 30, 100, [
-                        [540, 500, 455, 417, 340, 400, 13, 100, [
-                            [450, 435, 434, 430, 394, 395, 2, 40]
-                        ]],
-                        [550, 445, 600, 356, 680, 345, 12, 100, [
-                            [578, 400, 648, 409, 661, 426, 3, 80]
-                        ]],
-                        [539, 281, 537, 248, 534, 217, 3, 40],
-                        [546, 397, 413, 247, 328, 244, 9, 80, [
-                            [427, 286, 383, 253, 371, 205, 2, 40],
-                            [498, 345, 435, 315, 395, 330, 4, 60]
-                        ]],
-                        [546, 357, 608, 252, 678, 221, 6, 100, [
-                            [590, 293, 646, 277, 648, 271, 2, 80]
-                        ]]
-                    ]]
-                ],
-                bloom: {
-                    num: 700,
-                    width: 1080,
-                    height: 650,
-                },
-                footer: {
-                    width: 1200,
-                    height: 5,
-                    speed: 10,
-                }
-            }
-
-            var tree = new Tree(canvas[0], width, height, opts);
-            var seed = tree.seed;
-            var foot = tree.footer;
-            var hold = 1;
-
-            canvas.click(function (e) {
-                var offset = canvas.offset(), x, y;
-                x = e.pageX - offset.left;
-                y = e.pageY - offset.top;
-                if (seed.hover(x, y)) {
-                    hold = 0;
-                    canvas.unbind("click");
-                    canvas.unbind("mousemove");
-                    canvas.removeClass('hand');
-                }
-            }).mousemove(function (e) {
-                var offset = canvas.offset(), x, y;
-                x = e.pageX - offset.left;
-                y = e.pageY - offset.top;
-                canvas.toggleClass('hand', seed.hover(x, y));
-            });
-
-            var seedAnimate = eval(Jscex.compile("async", function () {
-                seed.draw();
-                while (hold) {
-                    $await(Jscex.Async.sleep(10));
-                }
-                while (seed.canScale()) {
-                    seed.scale(0.95);
-                    $await(Jscex.Async.sleep(10));
-                }
-                while (seed.canMove()) {
-                    seed.move(0, 2);
-                    foot.draw();
-                    $await(Jscex.Async.sleep(10));
-                }
-            }));
-
-            var growAnimate = eval(Jscex.compile("async", function () {
-                do {
-                    tree.grow();
-                    $await(Jscex.Async.sleep(10));
-                } while (tree.canGrow());
-            }));
-
-            var flowAnimate = eval(Jscex.compile("async", function () {
-                do {
-                    tree.flower(2);
-                    $await(Jscex.Async.sleep(10));
-                } while (tree.canFlower());
-            }));
-
-            var moveAnimate = eval(Jscex.compile("async", function () {
-                tree.snapshot("p1", 240, 0, 610, 680);
-                while (tree.move("p1", 500, 0)) {
-                    foot.draw();
-                    $await(Jscex.Async.sleep(10));
-                }
-                foot.draw();
-                tree.snapshot("p2", 500, 0, 610, 680);
-
-                // 会有闪烁不得意这样做, (＞﹏＜)
-                canvas.parent().css("background", "url(" + tree.toDataURL('image/png') + ")");
-                canvas.css("background", "#ffe");
-                $await(Jscex.Async.sleep(300));
-                canvas.css("background", "none");
-            }));
-
-            var jumpAnimate = eval(Jscex.compile("async", function () {
-                var ctx = tree.ctx;
-                while (true) {
-                    tree.ctx.clearRect(0, 0, width, height);
-                    tree.jump();
-                    foot.draw();
-                    $await(Jscex.Async.sleep(25));
-                }
-            }));
-
-            var textAnimate = eval(Jscex.compile("async", function () {
-                var together = new Date();
-                var time_list = time.split("-")
-
-                console.log("时间", time_list);
-                together.setFullYear(parseInt(time_list[0]), parseInt(time_list[1]) - 1, parseInt(time_list[2]));
-                together.setHours(0);
-                together.setMinutes(0);
-                together.setSeconds(0);
-                together.setMilliseconds(0);
-
-                $("#code").show().typewriter();
-                $("#clock-box").fadeIn(500);
-                while (true) {
-                    timeElapse(together);
-                    $await(Jscex.Async.sleep(1000));
-                }
-            }));
-
-
-
-            var runAsync = eval(Jscex.compile("async", function () {
-                $await(seedAnimate());
-                $await(growAnimate());
-                $await(flowAnimate());
-                $await(moveAnimate());
-
-                textAnimate().start();
-
-                $await(jumpAnimate());
-            }));
-
-            runAsync().start();
-        })();
-    </script>
-
-
-
+    <iframe src="./html/login.html" id="iframepage" scrolling="no" onload="changeFrameHeight()" frameborder="0"
+        style="width:100%" marginwidth="0" marginheight="0"></iframe>
+    <!-- <script src="js/jquery-2.1.1.min.js" type="text/javascript"></script> -->
+    <script src="js/jquery-1.8.4.min.js" type="text/javascript"></script>
 </body>
 
 </html>
